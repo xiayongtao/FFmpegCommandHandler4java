@@ -21,13 +21,16 @@ public class Test {
 	public static void test1() throws InterruptedException{
 		FFmpegManager manager = new FFmpegManagerImpl();
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("appName", "test123");
-		map.put("input", "rtsp://admin:admin@192.168.2.236:37779/cam/realmonitor?channel=1&subtype=0");
-		map.put("output", "rtmp://192.168.30.21/live/");
-		map.put("codec", "h264");
+		map.put("appName", "test123d");
+		map.put("input", "rtmp://live.hkstv.hk.lxdns.com/live/hks");
+		map.put("output", "rtmp://192.168.1.132/live/");
+		map.put("vcodec", "h264");
+		map.put("acodec", "aac");
 		map.put("fmt", "flv");
 		map.put("fps", "25");
-		map.put("rs", "640x360");
+		map.put("rs", "704x576");
+		map.put("vbit","1.5m");
+		map.put("abit","128k");
 		map.put("twoPart", "2");
 		// 执行任务，id就是appName，如果执行失败返回为null
 		String id = manager.start(map);
@@ -98,7 +101,7 @@ public class Test {
 		manager.stopAll();
 	}
 	public static void main(String[] args) throws InterruptedException {
-//		test1();
+		test1();
 //		test2();
 		//test3();
 		//test4();
